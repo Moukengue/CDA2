@@ -1,0 +1,48 @@
+Exercice 1 : vues sur la base hotel
+
+Q1.Afficher la liste des hôtels avec leur station
+
+R.CREATE VIEW staion_hotel
+AS 
+
+SELECT hotel.hot_nom,station.sta_nom FROM hotel
+INNER JOIN station on station.sta_id= hotel.hot_id;
+
+Q2. Afficher la liste des chambres et leur hôtel
+
+R.
+CREATE VIEW chambre_hotel
+AS 
+SELECT hotel.hot_nom,chambre.* FROM chambre
+INNER JOIN hotel ON hotel.hot_id = chambre.cha_hot_id;
+Q.3 
+Afficher la liste des réservations avec le nom des clients
+R.
+CREATE VIEW reservchamb
+as 
+SELECT client.cli_nom,reservation.res_cli_id FROM client 
+INNER JOIN reservation ON reservation.res_cli_id = client.cli_id;
+
+Q4.
+Afficher la liste des chambres avec le nom de l’hôtel et le nom de la station
+
+R.
+CREATE VIEW Cha_H_S
+AS 
+
+SELECT chambre.*, hotel.hot_nom,station.sta_nom FROM chambre
+INNER JOIN hotel ON hotel.hot_id = chambre.cha_hot_id
+INNER JOIN station ON station.sta_id = hotel.hot_sta_id ;
+
+Q5.
+Afficher les réservations avec le nom du client et le nom de l’hôtel
+R.
+
+CREATE VIEW rhc
+AS 
+SELECT client.cli_nom,hotel.hot_nom,reservation.* FROM reservation 
+INNER JOIN client ON client.cli_id = reservation.res_cli_id
+INNER JOIN chambre ON chambre.cha_hot_id= reservation.res_cha_id
+INNER JOIN hotel ON hotel.hot_id = chambre.cha_hot_id;
+
+Exercice 2 : vues sur la base papyrus
