@@ -8,8 +8,7 @@ WHERE numfou ='9120';
 Q 2. 
 Afficher le code des fournisseurs pour lesquels des commandes ont été passées.
 R.
-SELECT numfou, COUNT(numfou) FROM entcom
-GROUP BY numfou;
+SELECT numfou,numcom FROM entcom;
 
 Q.3
 Afficher le nombre de commandes fournisseurs passées, et le nombre de fournisseur concernés.

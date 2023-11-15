@@ -46,3 +46,28 @@ INNER JOIN chambre ON chambre.cha_hot_id= reservation.res_cha_id
 INNER JOIN hotel ON hotel.hot_id = chambre.cha_hot_id;
 
 Exercice 2 : vues sur la base papyrus
+
+
+
+    v_GlobalCde correspondant à la requête : A partir de la table Ligcom, afficher par code produit, la somme des quantités commandées et le prix total correspondant : on nommera la colonne correspondant à la somme des quantités commandées, QteTot et le prix total, PrixTot.
+
+R.
+CREATE view QteTot
+as 
+SELECT codart,SUM(qtecde), SUM(priuni*qtecde) FROM ligcom
+GROUP BY codart;
+
+v_VentesI100 correspondant à la requête : Afficher les ventes dont le code produit est le I100 (affichage de toutes les colonnes de la table Vente).
+R.
+CREATE VIEW vente_V
+AS 
+SELECT * FROM vente WHERE codart LIKE 'I100';
+
+Q3
+A partir de la vue précédente, créez v_VentesI100Grobrigan remontant toutes les ventes concernant le produit I100 et le fournisseur 00120. 
+
+R.
+CREATE VIEW vente_Remontant
+AS  
+SELECT codart,numfou FROM vente WHERE codart LIKE 'I100' AND numfou LIKE '120';
+

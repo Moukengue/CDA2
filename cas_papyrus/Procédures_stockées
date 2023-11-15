@@ -1,0 +1,22 @@
+
+Exercice 1 : création dune procédure stockée sans paramètre
+Créez la procédure stockée Lst_fournis correspondant à la requête n°2 afficher le code des fournisseurs pour lesquels une commande a été passée. 
+
+DELIMITER $
+
+CREATE PROCEDURE Lst_fournis()
+
+BEGIN
+ SELECT numfou,numcom FROM entcom;
+END $
+
+DELIMITER ;
+
+2.
+Appel en passant une valeur au paramètre
+Exécutez la pour vérifier qu’elle fonctionne conformément à votre attente. 
+
+R. call Lst_fournis 
+3.Exécutez la commande SQL suivante pour obtenir des informations sur cette procédure stockée 
+R.
+SHOW CREATE PROCEDURE Lst_fournis;

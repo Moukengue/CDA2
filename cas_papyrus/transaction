@@ -1,0 +1,20 @@
+
+Exercice 1
+
+Sous PhpMyAdmin, après avoir sélectionné votre base Papyrus codez le script suivant et exécutez-le :
+R.
+TART TRANSACTION;
+
+SELECT nomfou FROM fournis WHERE numfou=120;
+
+R.
+
+START TRANSACTION;
+
+UPDATE fournis  SET nomfou= 'GROSBRIGAND' WHERE numfou=120 
+
+
+R.
+START TRANSACTION;
+
+SELECT nomfou FROM fournis WHERE numfou=120 
